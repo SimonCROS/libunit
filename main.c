@@ -19,7 +19,7 @@ int	main(void)
 
 	status = 0;
 	status |= crash_launcher();
-	ft_putendl("========================================");
+	ft_putendl("\n========================================\n");
 	status |= strlen_launcher();
 	ft_putendl("========================================");
 	status |= toupper_launcher();

@@ -14,7 +14,7 @@
 
 int	strlen_basic_test(void)
 {
-	if (ft_strlen("Hey hey hey") != 11)
+	if (ft_strlen("Hey hey heys") != 11)
 		return (-1);
 	return (0);
 }

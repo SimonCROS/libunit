@@ -15,6 +15,13 @@
 
 # include "libft.h"
 
+/*** Defines ******************************************************************/
+
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define RED "\033[31m"
+# define RESET "\033[0m"
+
 /*** Types ********************************************************************/
 
 typedef struct s_unit_test	t_unit_test;
