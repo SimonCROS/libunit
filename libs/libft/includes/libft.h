@@ -426,7 +426,7 @@ t_list		*lst_filter_in(t_list *list, t_predicate filter);
  * 
  * @param list the list
  * @param filter the filter
- * @return the new list
+ * @return A view of the list
  */
 t_list		*lst_filter(t_list *list, t_predicate filter);
 /**
@@ -565,6 +565,7 @@ void		**as_arrayf(t_list *list);
 void		**as_array(t_list *list);
 t_list		*lst_new(t_consumer del);
 t_list		*lst_init(t_list *list, t_consumer del);
+int			lst_count(t_list *list, t_predicate filter);
 void		*lst_shift(t_list *list);
 void		*lst_first(t_list *list);
 /**

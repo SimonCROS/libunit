@@ -20,7 +20,6 @@ static void	launch_test(t_unit_test *test) {
 }
 
 static int	test_passed(t_unit_test *test) {
-	printf("%s, %d\n", test->name, test->passed);
 	return test->passed;
 }
 
@@ -29,11 +28,9 @@ int	launch_tests(t_list *tests)
 	lst_foreach(tests, (t_consumer)launch_test);
 
 	int total = tests->size;
-	t_list *good = lst_filter(tests, (t_predicate)test_passed);
-	int passed = good->size;
-	lst_free(good);
+	int passed = lst_count(tests, (t_predicate)test_passed);
 
-	printf("%d/%d\n", passed, total);
+	printf("\n%d/%d tests checked\n", passed, total);
 
 	lst_clear(tests);
 	return (EXIT_SUCCESS);
