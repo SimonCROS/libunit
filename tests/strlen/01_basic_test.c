@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "libft.h"
 
-int	main(void)
+int	strlen_basic_test(void)
 {
-	strlen_launcher();
+	if (ft_strlen("Hey hey hey") != 11)
+		return (-1);
 	return (0);
 }

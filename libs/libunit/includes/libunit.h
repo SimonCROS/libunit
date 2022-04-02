@@ -10,10 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#ifndef LIBUNIT_H
+# define LIBUNIT_H
 
-int	main(void)
+# include "libft.h"
+
+/*** Types ********************************************************************/
+
+typedef struct s_unit_test	t_unit_test;
+
+/*** Basic testing functions **************************************************/
+
+struct s_unit_test
 {
-	strlen_launcher();
-	return (0);
-}
+	char	*name;
+	char	*category;
+	int		(*function)(void);
+	char	passed;
+};
+
+int		launch_tests(t_list *tests);
+void	load_test(t_list *tests, char *test_name, int (*function)(void));
+
+#endif

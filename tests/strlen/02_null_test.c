@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "libft.h"
 
-int	main(void)
+int	strlen_null_test(void)
 {
-	strlen_launcher();
+	if (ft_strlen(NULL) != 0)
+		return (-1);
 	return (0);
 }

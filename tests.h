@@ -10,10 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#ifndef TESTS_H
+# define TESTS_H
 
-int	main(void)
-{
-	strlen_launcher();
-	return (0);
-}
+/*** strlen *******************************************************************/
+
+int	strlen_launcher(void);
+int	strlen_basic_test(void);
+int	strlen_null_test(void);
+
+#endif

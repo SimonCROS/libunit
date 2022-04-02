@@ -10,10 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "libunit.h"
 
-int	main(void)
+int	launch_tests(t_list *tests)
 {
-	strlen_launcher();
-	return (0);
+	lst_clear(tests);
+	return (EXIT_SUCCESS);
+}
+
+void	load_test(t_list *tests, char *test_name, int (*function)(void))
+{
+	t_unit_test	*test;
+
+	test = malloc(sizeof(test));
+	if (!test)
+		return ;
+	test->category = NULL;
+	test->name = test_name;
+	test->function = function;
+	test->passed = FALSE;
+	lst_push(tests, test);
 }
