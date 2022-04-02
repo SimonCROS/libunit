@@ -40,10 +40,8 @@ static void	launch_test(t_unit_test *test, char *category)
 		exit(test->function());
 	wait(&test->status);
 	ft_putstr(category);
-	write(1, "                  ", fmini(6, 6 - ft_strlen(category)));
 	ft_putstr(" : ");
 	ft_putstr(test->name);
-	write(1, "                  ", fmini(18, 18 - ft_strlen(test->name)));
 	ft_putstr(" : [");
 	ft_putstr(get_res_string(test->status));
 	ft_putendl(RESET"]");
@@ -67,6 +65,7 @@ int	launch_tests(t_list *tests, char *category)
 	ft_putstr("/");
 	ft_putnbr(total);
 	ft_putendl(" tests checked");
+	lst_clear(tests);
 	if (passed == total)
 		return (0);
 	return (-1);
