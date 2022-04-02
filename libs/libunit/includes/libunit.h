@@ -26,7 +26,7 @@ struct s_unit_test
 	char	*name;
 	char	*category;
 	int		(*function)(void);
-	char	passed;
+	int		passed;
 };
 
 int		launch_tests(t_list *tests);
