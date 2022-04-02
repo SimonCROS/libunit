@@ -7,6 +7,7 @@ override INC		:= includes
 override CONV		:= convert
 override LIST		:= list
 override ITERAT		:= iterator
+override MATH		:= math
 override MEMORY		:= memory
 override PRINT		:= print
 override STRING		:= string
@@ -75,6 +76,17 @@ override LIST_SRCS	:= $(addprefix $(LIST)/,	\
 				lst_unshift.c					\
 				)
 
+override MATH_SRCS	:= $(addprefix $(MATH)/,	\
+				ft_abs.c						\
+				ft_charlen.c					\
+				ft_shortlen.c					\
+				ft_intlen.c						\
+				ft_longlen.c					\
+				ft_longlonglen.c				\
+				ft_max.c						\
+				ft_min.c						\
+				)
+
 override MEMORY_SRCS:= $(addprefix $(MEMORY)/,	\
 				ft_bzero.c						\
 				ft_calloc.c						\
@@ -134,6 +146,7 @@ override SRCS		:=							\
 				$(CONV_SRCS)					\
 				$(LIST_SRCS)					\
 				$(ITERAT_SRCS)					\
+				$(MATH_SRCS)					\
 				$(MEMORY_SRCS)					\
 				$(PRINT_SRCS)					\
 				$(STRING_SRCS)					\
