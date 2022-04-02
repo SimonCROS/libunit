@@ -15,12 +15,13 @@
 int	calloc_null_size(void)
 {
 	char	*s;
+	char	*c;
 
 	s = ft_calloc(0, 0);
-	if (s)
+	if (!s)
 	{
-		free(s);
 		return (-1);
 	}	
+	free(s);
 	return (0);
 }
