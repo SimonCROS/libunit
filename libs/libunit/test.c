@@ -12,8 +12,14 @@
 
 #include "libunit.h"
 
+static void	launch_test(t_unit_test *test) {
+	ft_putendl(test->name);
+}
+
 int	launch_tests(t_list *tests)
 {
+	lst_foreach(tests, (t_consumer)launch_test);
+
 	lst_clear(tests);
 	return (EXIT_SUCCESS);
 }
