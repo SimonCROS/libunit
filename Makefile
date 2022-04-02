@@ -1,14 +1,58 @@
-all:
-	clang -Wall -Wextra -Werror main.c libft/libft.a framework/*.c tests/**/*.c real_tests/**/*.c -I. -Ilibft/includes -Iframework/includes
+LINUX			:= 0
+
+# Folders
+
+override SRC		:= framework
+override INC		:= framework/includes
+
+# Properties
+
+NAME			= libunit.a
+
+# Commands
+
+override AR		:= ar rcs
+
+override CC		:= gcc
+override CFLAGS		:= -Wall -Wextra -Werror
+override INCLUDES	:= -I$(INC) -Ilibft/includes
+
+override LIBFT		:= libft/libft.a
+
+# Sources
+
+override SRCS		:=			\
+				test.c		\
+
+override OBJS		:= $(addprefix obj/, $(SRCS:.c=.o))
+
+override OBJDIRS	:= $(sort $(dir $(OBJS)))
+
+all:		libft $(NAME)
 
 libft:
-	make -C ./libft
+		make -C libft
 
-framework:
-	make -C ./framework
+obj/%.o:	$(SRC)/%.c $(INC)/libunit.h libft/includes/libft.h
+			@mkdir -p $(dir $@);
+			$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
-test:
-	make -C ./test
+$(OBJS):	| $(OBJDIRS)
 
-real_test:
-	make -C ./real_test
+$(OBJDIRS):
+			mkdir -p $@
+
+$(NAME):	$(OBJS) $(LIBFT)
+			ar rcs $@ $(OBJS)
+
+clean:
+			$(MAKE) -C libft clean
+			rm -rf obj
+
+fclean:		clean
+			$(MAKE) -C libft fclean
+			rm -f $(NAME)
+
+re:			fclean all
+
+.PHONY:		all libft clean fclean re
