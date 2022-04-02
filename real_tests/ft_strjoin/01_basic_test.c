@@ -10,17 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "tests.h"
+#include "libft.h"
 
-int	crash_launcher(void)
+int	strjoin_bigstring_test(void)
 {
-	t_list	tests;
+	char	*a;
+	char	*b;
+	char	*c;
 
-	lst_init(&tests, free);
-	load_test(&tests, "Segmentation fault", crash_sigsegv_test);
-	load_test(&tests, "Sig Abort", crash_sigabrt_test);
-	load_test(&tests, "ok test", crash_ok_test);
-	load_test(&tests, "ko test", crash_ko_test);
-	return (launch_tests(&tests, "CRASH"));
+	b = ft_strdup("this is shorter");
+	a = ft_strdup("this is a pretty short string, ");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "this is a pretty short string, this is shorter") != 0)
+	{
+		free(c);
+		return (-1);
+	}
+	free(c);
+	return (0);
 }

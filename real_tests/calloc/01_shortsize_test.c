@@ -10,17 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "tests.h"
+#include "libft.h"
 
-int	crash_launcher(void)
+int	calloc_short_size(void)
 {
-	t_list	tests;
+	char	*s;
 
-	lst_init(&tests, free);
-	load_test(&tests, "Segmentation fault", crash_sigsegv_test);
-	load_test(&tests, "Sig Abort", crash_sigabrt_test);
-	load_test(&tests, "ok test", crash_ok_test);
-	load_test(&tests, "ko test", crash_ko_test);
-	return (launch_tests(&tests, "CRASH"));
+	s = ft_calloc(2, 1);
+	if (!s)
+		return (-1);
+	s[1] = 'a';
+	s[2] = 'b';
+	if (s[1] != 'a' || s[2] != 'b')
+	{
+		free(s);
+		return (-1);
+	}
+	free(s);
+	return (0);
 }

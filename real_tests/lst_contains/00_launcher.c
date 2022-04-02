@@ -12,15 +12,14 @@
 
 #include "libunit.h"
 #include "tests.h"
-
-int	crash_launcher(void)
+/*
+int	lst_contains_launcher(void)
 {
 	t_list	tests;
 
 	lst_init(&tests, free);
-	load_test(&tests, "Segmentation fault", crash_sigsegv_test);
-	load_test(&tests, "Sig Abort", crash_sigabrt_test);
-	load_test(&tests, "ok test", crash_ok_test);
-	load_test(&tests, "ko test", crash_ko_test);
-	return (launch_tests(&tests, "CRASH"));
-}
+	load_test(&tests, "Stringtest", string_test);
+	load_test(&tests, "Int test", int_test);
+	load_test(&tests, "Void pointer test", voidptr_test);
+	return (launch_tests(&tests, "LST_CONTAIN"));
+}*/

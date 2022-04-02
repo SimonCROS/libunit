@@ -10,17 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "tests.h"
+#include "libft.h"
 
-int	crash_launcher(void)
+int	crash_sigabrt_test(void)
 {
-	t_list	tests;
+	char	*s;
 
-	lst_init(&tests, free);
-	load_test(&tests, "Segmentation fault", crash_sigsegv_test);
-	load_test(&tests, "Sig Abort", crash_sigabrt_test);
-	load_test(&tests, "ok test", crash_ok_test);
-	load_test(&tests, "ko test", crash_ko_test);
-	return (launch_tests(&tests, "CRASH"));
+	s = malloc(2);
+	if (!s)
+		return (-1);
+	free(s);
+	free(s);
+	return (0);
 }
