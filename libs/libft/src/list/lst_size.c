@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: scros <scros@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/02 11:22:45 by scros             #+#    #+#             */
+/*   Updated: 2022/04/02 11:22:47 by scros            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	lst_size(t_list *list)
+{
+	t_entry	*entry;
+	int		i;
+
+	if (lst_is_empty(list))
+		return (0);
+	entry = list->first;
+	i = 1;
+	while (entry->next)
+	{
+		entry = entry->next;
+		++i;
+	}
+	return (i);
+}
