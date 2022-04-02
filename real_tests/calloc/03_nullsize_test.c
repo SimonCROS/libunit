@@ -15,7 +15,6 @@
 int	calloc_null_size(void)
 {
 	char	*s;
-	char	*c;
 
 	s = ft_calloc(0, 0);
 	if (!s)
