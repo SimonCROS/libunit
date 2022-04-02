@@ -11,14 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "tests.h"
 
-int	calloc_null_size(void)
+int	main(void)
 {
-	char	*s;
-
-	s = ft_calloc(0, 0);
-	if (!s)
-		return (-1);
-	free(s);
-	return (0);
+	crash_launcher();
 }
