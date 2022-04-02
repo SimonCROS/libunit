@@ -10,25 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#include "libunit.h"
+#include "tests.h"
 
-# include "libft.h"
-
-/*** Types ********************************************************************/
-
-typedef struct s_unit_test	t_unit_test;
-
-/*** Basic testing functions **************************************************/
-
-struct s_unit_test
+int	crash_launcher(void)
 {
-	char	*name;
-	int		(*function)(void);
-	int		status;
-};
+	t_list	tests;
 
-int		launch_tests(t_list *tests, char *category);
-void	load_test(t_list *tests, char *test_name, int (*function)(void));
-
-#endif
+	lst_init(&tests, free);
+	load_test(&tests, "Segmentation fault", crash_sigsegv_test);
+	return (launch_tests(&tests, "CRASH"));
+}

@@ -18,48 +18,50 @@
 static char	*get_res_string(int res)
 {
 	if (res == 0)
-		return (" : [OK]");
+		return ("OK");
 	else if (res == 11)
-		return (" : [SIGSEGV]");
+		return ("SIGSEGV");
 	else if	(res == 7)
-		return (" : [SIGBUS]");
+		return ("SIGBUS");
 	else if	(res == 6)
-		return (" : [SIGABRT]");
+		return ("SIGABRT");
 	else if	(res == 8)
-		return (" : [SIGFPE]");
+		return ("SIGFPE");
 	else if	(res == 13)
-		return (" : [SIGPIPE]");
+		return ("SIGPIPE");
 	else if (res == 4)
-		return (" : [SIGILL]");
-	return (" : [KO]");
+		return ("SIGILL");
+	return ("KO");
 }
 
-static void	launch_test(t_unit_test *test) {
+static void	launch_test(t_unit_test *test, char *category) {
 	if (fork() == 0)
 		exit(test->function());
-	wait(&test->passed);
-	ft_putstr(test->category);
+	wait(&test->status);
+	ft_putstr(category);
 	ft_putstr(" : ");
 	ft_putstr(test->name);
 	ft_putstr(" : [");
-	ft_putstr(get_res_string(test->passed));
+	ft_putstr(get_res_string(test->status));
 	ft_putendl("]");
 }
 
 static int	test_passed(t_unit_test *test) {
-	return test->passed == 0;
+	return test->status == 0;
 }
 
-int	launch_tests(t_list *tests)
+int	launch_tests(t_list *tests, char *category)
 {
 	int		total;
 	int		passed;
 
-	lst_foreach(tests, (t_consumer)launch_test);
+	lst_foreachp(tests, (t_biconsumer)launch_test, category);
 	total = tests->size;
 	passed = lst_count(tests, (t_predicate)test_passed);
 	printf("\n%d/%d tests checked\n", passed, total);
-	return (passed == total);
+	if (passed == total)
+		return (0);
+	return (-1);
 }
 
 void	load_test(t_list *tests, char *test_name, int (*function)(void))
@@ -69,9 +71,8 @@ void	load_test(t_list *tests, char *test_name, int (*function)(void))
 	test = malloc(sizeof(t_unit_test));
 	if (!test)
 		return ;
-	test->category = NULL;
 	test->name = test_name;
 	test->function = function;
-	test->passed = 0;
+	test->status = 0;
 	lst_push(tests, test);
 }

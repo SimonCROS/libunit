@@ -10,10 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "tests.h"
 
 int	main(void)
 {
-	strlen_launcher();
-	return (0);
+	int	status;
+
+	status = 0;
+	status |= crash_launcher();
+	ft_putendl("========================================");
+	status |= strlen_launcher();
+	return (ft_ternary(status == 0, EXIT_SUCCESS, EXIT_FAILURE));
 }

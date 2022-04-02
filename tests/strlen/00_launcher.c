@@ -20,5 +20,5 @@ int	strlen_launcher(void)
 	lst_init(&tests, free);
 	load_test(&tests, "Basic test", strlen_basic_test);
 	load_test(&tests, "NULL test", strlen_null_test);
-	return (launch_tests(&tests));
+	return (launch_tests(&tests, "STRLEN"));
 }
