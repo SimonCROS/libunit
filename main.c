@@ -19,7 +19,7 @@ int	main(void)
 
 	status = 0;
 	status |= crash_launcher();
-	ft_putendl("========================================");
+	ft_putendl("\n========================================\n");
 	status |= strlen_launcher();
 	return (ft_ternary(status == 0, EXIT_SUCCESS, EXIT_FAILURE));
 }

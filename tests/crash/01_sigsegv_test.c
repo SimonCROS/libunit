@@ -18,5 +18,5 @@ int	crash_sigsegv_test(void)
 
 	abc = NULL;
 	*abc = 12;
-	return *abc;
+	return (-1);
 }
