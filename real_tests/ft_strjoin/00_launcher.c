@@ -19,6 +19,6 @@ int	strjoin_launcher(void)
 
 	lst_init(&tests, free);
 	load_test(&tests, "Big String test", strjoin_bigstring_test);
-	load_test(&tests, "Two Null String test", strjoin_null_test);
+	load_test(&tests, "Null test", strjoin_null_test);
 	return (launch_tests(&tests, "STRJOIN"));
 }
