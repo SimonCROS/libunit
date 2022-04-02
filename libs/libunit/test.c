@@ -12,22 +12,25 @@
 
 #include "libunit.h"
 
-static char	*get_res_string(int res)
+static char	*get_res_string(int status)
 {
-	if (res == 0)
+	if (WIFSIGNALED(status))
+	{
+		if (WTERMSIG(status) == SIGSEGV)
+			return (RED"SIGSEGV");
+		else if (WTERMSIG(status) == SIGBUS)
+			return (RED"SIGBUS");
+		else if (WTERMSIG(status) == SIGABRT)
+			return (RED"SIGABRT");
+		else if (WTERMSIG(status) == SIGFPE)
+			return (RED"SIGFPE");
+		else if (WTERMSIG(status) == SIGPIPE)
+			return (RED"SIGPIPE");
+		else if (WTERMSIG(status) == SIGILL)
+			return (RED"SIGILL");
+	}
+	else if (status == 0)
 		return (GREEN"OK");
-	else if (res == 11)
-		return (RED"SIGSEGV");
-	else if (res == 7)
-		return (RED"SIGBUS");
-	else if (res == 6)
-		return (RED"SIGABRT");
-	else if (res == 8)
-		return (RED"SIGFPE");
-	else if (res == 13)
-		return (RED"SIGPIPE");
-	else if (res == 4)
-		return (RED"SIGILL");
 	return (YELLOW"KO");
 }
 
