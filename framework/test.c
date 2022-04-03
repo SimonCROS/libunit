@@ -12,61 +12,33 @@
 
 #include "libunit.h"
 
-static char	*get_res_string(int status)
+static void	init_test(t_test *test, char *category, t_list *tests)
 {
-	if (WIFSIGNALED(status))
-	{
-		if (WTERMSIG(status) == SIGSEGV)
-			return (RED"SIGSEGV");
-		else if (WTERMSIG(status) == SIGBUS)
-			return (RED"SIGBUS");
-		else if (WTERMSIG(status) == SIGABRT)
-			return (RED"SIGABRT");
-		else if (WTERMSIG(status) == SIGFPE)
-			return (RED"SIGFPE");
-		else if (WTERMSIG(status) == SIGPIPE)
-			return (RED"SIGPIPE");
-		else if (WTERMSIG(status) == SIGILL)
-			return (RED"SIGILL");
-	}
-	else if (status == 0)
-		return (GREEN"OK");
-	return (YELLOW"KO");
+	test->fp = fopen("test.log", "w+");
+	test->category = category;
+	test->tests = tests;
 }
 
-static void	launch_test(t_unit_test *test, char *category)
+static void	launch_test(t_unit_test *current, t_test *test)
 {
 	if (fork() == 0)
-		exit(test->function());
-	wait(&test->status);
-	ft_putstr(category);
-	ft_putstr(" : ");
-	ft_putstr(test->name);
-	ft_putstr(" : [");
-	ft_putstr(get_res_string(test->status));
-	ft_putendl(RESET"]");
-}
-
-static int	test_passed(t_unit_test *test)
-{
-	return (test->status == 0);
+		exit(current->function());
+	wait(&current->status);
 }
 
 int	launch_tests(t_list *tests, char *category)
 {
-	int		total;
 	int		passed;
+	t_test	test;
 
-	lst_foreachp(tests, (t_biconsumer)launch_test, category);
-	total = tests->size;
+	init_test(&test, category, tests);
+	lst_foreachp(tests, (t_biconsumer)launch_test, &test);
+	lst_foreachp(tests, (t_biconsumer)out_log_test, &test);
 	passed = lst_count(tests, (t_predicate)test_passed);
-	ft_putendl("");
-	ft_putnbr(passed);
-	ft_putstr("/");
-	ft_putnbr(total);
-	ft_putendl(" tests checked");
+	out_log_tests(&test, passed);
 	lst_clear(tests);
-	if (passed == total)
+	fclose(test.fp);
+	if (passed == tests->size)
 		return (0);
 	return (-1);
 }

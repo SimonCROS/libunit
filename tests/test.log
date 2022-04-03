@@ -1,0 +1,7 @@
+CRASH : Segmentation fault : [SIGSEGV]
+CRASH : Sig Abort          : [SIGABRT]
+CRASH : ok test            : [OK]
+CRASH : ko test            : [KO]
+
+1/4 tests passed
+2/4 tests terminated with signal
