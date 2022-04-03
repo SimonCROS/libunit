@@ -15,6 +15,8 @@
 static void	init_test(t_test *test, char *category, t_list *tests)
 {
 	test->fp = fopen("test.log", "w+");
+	if (!test->fp)
+		return ;
 	test->category = category;
 	test->tests = tests;
 }
