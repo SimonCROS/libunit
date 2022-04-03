@@ -27,12 +27,12 @@ static void	handler(int signum)
 	exit(254);
 }
 
-static void	launch_test(t_unit_test *current, t_test *test)
+static void	launch_test(t_unit_test *current)
 {
 	if (fork() == 0)
 	{
 		signal(SIGALRM, handler);
-		alarm(4);
+		alarm(TIMEOUT);
 		exit(current->function());
 	}
 	wait(&current->status);
@@ -44,7 +44,7 @@ int	launch_tests(t_list *tests, char *category)
 	t_test	test;
 
 	init_test(&test, category, tests);
-	lst_foreachp(tests, (t_biconsumer)launch_test, &test);
+	lst_foreach(tests, (t_consumer)launch_test);
 	lst_foreachp(tests, (t_biconsumer)out_log_test, &test);
 	passed = lst_count(tests, (t_predicate)test_passed);
 	out_log_tests(&test, passed);
