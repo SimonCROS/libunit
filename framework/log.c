@@ -24,7 +24,7 @@ void	out_log_tests(t_test *test, int passed)
 	ft_putendl(" tests passed");
 	fprintf(test->fp,
 		"\n%d/%d tests passed\n"
-		"%d/%d tests terminated with signal\n",
+		"%d/%d tests terminated by a signal\n",
 		passed, total,
 		lst_count(test->tests, (t_predicate)test_terminated), total);
 }
