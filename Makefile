@@ -16,7 +16,7 @@ NAME			= libunit.a
 override AR		:= ar rcs
 
 override CC		:= gcc
-override CFLAGS		:= #-Wall -Wextra -Werror
+override CFLAGS		:= -Wall -Wextra -Werror
 override INCLUDES	:= -I$(INC) -Ilibft/includes
 
 override LIBFT		:= libft/libft.a
@@ -39,6 +39,14 @@ test:
 			@$(MAKE) -C signal-tests test
 			@echo "====================="
 			@$(MAKE) -C real-tests test
+			@echo "====================="
+			@$(MAKE) -C color-tests test
+			@echo "====================="
+			@$(MAKE) -C print-tests test
+			@echo "====================="
+			@$(MAKE) -C logs-tests test
+			@echo "====================="
+			@$(MAKE) -C timeout-tests test
 
 libft:
 			@$(MAKE) -C libft

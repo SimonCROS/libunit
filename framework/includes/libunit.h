@@ -13,10 +13,6 @@
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
 
-# ifndef TIMEOUT_TIME
-#  define TIMEOUT_TIME 4
-# endif
-
 # include "libft.h"
 # include <time.h>
 # include <stdio.h>
@@ -24,6 +20,8 @@
 # include <signal.h>
 
 /*** Defines ******************************************************************/
+
+# define TIMEOUT 4
 
 # define GREEN "\033[32m"
 # define YELLOW "\033[33m"
