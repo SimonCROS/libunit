@@ -10,10 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "tests.h"
+#include "libunit.h"
+#include "signal_tests.h"
 
-int	main(void)
+int	raise_launcher(void)
 {
-	default_launcher();
+	t_list	tests;
+
+	lst_init(&tests, free);
+	load_test(&tests, "Segmentation fault", raise_sigsegv_test);
+	load_test(&tests, "Bus error", raise_sigbus_test);
+	load_test(&tests, "Abort", raise_sigabrt_test);
+	load_test(&tests, "Floating point exception", raise_sigfpe_test);
+	load_test(&tests, "Broken pipe", raise_sigpipe_test);
+	load_test(&tests, "Illegal instruction", raise_sigill_test);
+	return (launch_tests(&tests, "SIGNAL"));
 }

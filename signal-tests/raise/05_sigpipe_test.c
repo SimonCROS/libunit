@@ -11,12 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <signal.h>
 
-int	crash_sigsegv_test(void)
+int	raise_sigpipe_test(void)
 {
-	int	*abc;
-
-	abc = NULL;
-	*abc = 12;
+	raise(SIGPIPE);
 	return (-1);
 }

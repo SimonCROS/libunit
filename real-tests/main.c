@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "tests.h"
+#include "real_tests.h"
 
 int	main(void)
 {

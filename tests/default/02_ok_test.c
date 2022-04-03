@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "tests.h"
 
-int	main(void)
+int	default_ok_test(void)
 {
-	default_launcher();
+	return (0);
 }

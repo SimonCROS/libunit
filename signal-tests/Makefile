@@ -11,17 +11,19 @@ override CPPFLAGS	:= -Wall -Wextra -Werror
 
 override SRCS		:=						\
 				main.c					\
-				default/00_launcher.c			\
-				default/01_sigsegv_test.c		\
-				default/02_ok_test.c			\
-				default/03_ko_test.c			\
-				default/04_sigbus_test.c
+				raise/00_launcher.c			\
+				raise/01_sigsegv_test.c			\
+				raise/02_sigbus_test.c			\
+				raise/03_sigabrt_test.c			\
+				raise/04_sigfpe_test.c			\
+				raise/05_sigpipe_test.c			\
+				raise/06_sigill_test.c			\
 
 override LIBS		:=						\
 				../libunit.a
 
 override HEADERS	:=						\
-				tests.h					\
+				signal_tests.h				\
 				../framework/includes/libunit.h		\
 				../libft/includes/libft.h
 

@@ -10,10 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "tests.h"
+#ifndef SIGNAL_TESTS_H
+# define SIGNAL_TESTS_H
 
-int	main(void)
-{
-	default_launcher();
-}
+/*** signal *******************************************************************/
+
+int	raise_launcher(void);
+
+int	raise_sigsegv_test(void);
+int	raise_sigbus_test(void);
+int	raise_sigabrt_test(void);
+int	raise_sigfpe_test(void);
+int	raise_sigpipe_test(void);
+int	raise_sigill_test(void);
+
+#endif

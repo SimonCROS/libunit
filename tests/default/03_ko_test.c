@@ -12,14 +12,7 @@
 
 #include "libft.h"
 
-int	crash_sigabrt_test(void)
+int	default_ko_test(void)
 {
-	char	*s;
-
-	s = malloc(2);
-	if (!s)
-		return (-1);
-	free(s);
-	free(s);
-	return (0);
+	return (-1);
 }

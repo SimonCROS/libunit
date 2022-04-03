@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "tests.h"
+#include "signal_tests.h"
 
 int	main(void)
 {
-	default_launcher();
+	raise_launcher();
 }

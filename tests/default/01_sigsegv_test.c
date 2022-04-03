@@ -12,7 +12,11 @@
 
 #include "libft.h"
 
-int	crash_ko_test(void)
+int	default_sigsegv_test(void)
 {
+	int	*abc;
+
+	abc = NULL;
+	*abc = 12;
 	return (-1);
 }

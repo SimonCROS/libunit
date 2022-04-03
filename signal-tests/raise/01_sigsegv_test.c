@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <signal.h>
 
-int	crash_ok_test(void)
+int	raise_sigsegv_test(void)
 {
-	return (0);
+	raise(SIGSEGV);
+	return (-1);
 }

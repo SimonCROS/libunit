@@ -10,10 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "tests.h"
+#ifndef REAL_TESTS_H
+# define REAL_TESTS_H
 
-int	main(void)
-{
-	default_launcher();
-}
+/*** strjoin ******************************************************************/
+
+int	strjoin_launcher(void);
+
+int	strjoin_basic_test(void);
+int	strjoin_null_test(void);
+int	strjoin_long_test(void);
+int	strjoin_strange_test(void);
+int	strjoin_short_test(void);
+int	strjoin_null2_test(void);
+int	strjoin_null3_test(void);
+int	strjoin_null4_test(void);
+int	strjoin_null5_test(void);
+int	strjoin_null6_test(void);
+int	strjoin_basic2_test(void);
+int	strjoin_basic3_test(void);
+int	strjoin_basic4_test(void);
+int	strjoin_unicode_test(void);
+int	strjoin_unicode2_test(void);
+
+#endif
