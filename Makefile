@@ -33,7 +33,7 @@ override OBJDIRS	:= $(sort $(dir $(OBJS)))
 all:		libft $(NAME)
 
 test:
-			@$(MAKE) -C tests
+			@$(MAKE) -C tests test
 
 libft:
 			@$(MAKE) -C libft
@@ -61,4 +61,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all libft clean fclean re
+.PHONY:		all test libft clean fclean re
