@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	strjoin_bigstring_test(void)
+int	strjoin_basic_test(void)
 {
 	char	*a;
 	char	*b;

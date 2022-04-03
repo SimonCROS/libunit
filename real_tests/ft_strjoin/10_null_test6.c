@@ -10,16 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "tests.h"
-/*
-int	lst_contains_launcher(void)
-{
-	t_list	tests;
+#include "libft.h"
 
-	lst_init(&tests, free);
-	load_test(&tests, "Stringtest", string_test);
-	load_test(&tests, "Int test", int_test);
-	load_test(&tests, "Void pointer test", voidptr_test);
-	return (launch_tests(&tests, "LST_CONTAIN"));
-}*/
+int	strjoin_null6_test(void)
+{
+	char	*a;
+	char	*b;
+	char	*c;
+
+	a = ft_strdup("alors");
+	b = ft_strdup("\0");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "alors\0") != 0)
+	{
+		free(c);
+		return (-1);
+	}
+	free(c);
+	return (0);
+}

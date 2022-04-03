@@ -12,9 +12,22 @@
 
 #include "libft.h"
 
-int	strcmp_null_test(void)
+int	strjoin_short_test(void)
 {
-	if (ft_strcmp(NULL, NULL) != 0)
+	char	*a;
+	char	*b;
+	char	*c;
+
+	a = ft_strdup("a");
+	b = ft_strdup("r");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "ar") != 0)
+	{
+		free(c);
 		return (-1);
+	}
+	free(c);
 	return (0);
 }

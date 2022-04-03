@@ -12,8 +12,22 @@
 
 #include "libft.h"
 
-/*int	int_test(void)
+int	strjoin_basic4_test(void)
 {
+	char	*a;
+	char	*b;
+	char	*c;
 
-
-}*/
+	b = ft_strdup("< Doing a mild amount of tomfoolery");
+	a = ft_strdup("Doing a little trolling <");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "Doing a little trolling << Doing a mild amount of tomfoolery") != 0)
+	{
+		free(c);
+		return (-1);
+	}
+	free(c);
+	return (0);
+}

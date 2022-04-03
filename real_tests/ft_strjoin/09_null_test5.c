@@ -10,16 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "tests.h"
+#include "libft.h"
 
-int	calloc_launcher(void)
+int	strjoin_null5_test(void)
 {
-	t_list	tests;
+	char	*a;
+	char	*b;
+	char	*c;
 
-	lst_init(&tests, free);
-	load_test(&tests, "Short calloc", calloc_short_size);
-	load_test(&tests, "Long calloc", calloc_long_size);
-	load_test(&tests, "null calloc", calloc_null_size);
-	return (launch_tests(&tests, "CRASH"));
+	a = ft_strdup("\0");
+	b = ft_strdup("alors");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "alors") != 0)
+	{
+		free(c);
+		return (-1);
+	}
+	free(c);
+	return (0);
 }

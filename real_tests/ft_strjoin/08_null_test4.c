@@ -12,20 +12,22 @@
 
 #include "libft.h"
 
-int	calloc_short_size(void)
+int	strjoin_null4_test(void)
 {
-	char	*s;
+	char	*a;
+	char	*b;
+	char	*c;
 
-	s = ft_calloc(2, 1);
-	if (!s)
-		return (-1);
-	s[1] = 'a';
-	s[2] = 'b';
-	if (s[1] != 'a' || s[2] != 'b')
+	a = ft_strdup("");
+	b = ft_strdup("alors");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "alors") != 0)
 	{
-		free(s);
+		free(c);
 		return (-1);
 	}
-	free(s);
+	free(c);
 	return (0);
 }

@@ -12,9 +12,22 @@
 
 #include "libft.h"
 
-int	toupper_null_test(void)
+int	strjoin_null2_test(void)
 {
-	if (ft_toupper(0) != 0)
+	char	*a;
+	char	*b;
+	char	*c;
+
+	a = ft_strdup("\0");
+	b = ft_strdup("\0");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "\0\0") != 0)
+	{
+		free(c);
 		return (-1);
+	}
+	free(c);
 	return (0);
 }

@@ -12,9 +12,31 @@
 
 #include "libft.h"
 
-int	toupper_basic_test(void)
+int	strjoin_long_test(void)
 {
-	if (ft_toupper('H') != 'H' || ft_toupper('h') != 'H')
+	char	*a;
+	char	*b;
+	char	*c;
+
+	b = ft_strdup("very, very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very "
+			"long string \nthis is shorter");
+	a = ft_strdup("Very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very,");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "Very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very,"
+			"very, very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very "
+			"long string \nthis is shorter") != 0)
+	{
+		free(c);
 		return (-1);
+	}
+	free(c);
 	return (0);
 }

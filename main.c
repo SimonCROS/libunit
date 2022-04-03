@@ -20,14 +20,7 @@ int	main(void)
 	status = 0;
 	status |= crash_launcher();
 	ft_putendl("\n========================================\n");
-	status |= strlen_launcher();
-	ft_putendl("========================================");
-	status |= toupper_launcher();
-	ft_putendl("========================================");
 	status |= strjoin_launcher();
-	ft_putendl("========================================");
-	status |= strcmp_launcher();
-	ft_putendl("========================================");
-	status |= calloc_launcher();
+	ft_putendl("\n========================================\n");
 	return (ft_ternary(status == 0, EXIT_SUCCESS, EXIT_FAILURE));
 }

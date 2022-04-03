@@ -10,15 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "tests.h"
+#include "libft.h"
 
-int	strcmp_launcher(void)
+int	strjoin_basic3_test(void)
 {
-	t_list	tests;
+	char	*a;
+	char	*b;
+	char	*c;
 
-	lst_init(&tests, free);
-	load_test(&tests, "Basic test", strcmp_basic_test);
-	load_test(&tests, "NULL test", strcmp_null_test);
-	return (launch_tests(&tests, "STRCMP"));
+	b = ft_strdup("chocolat");
+	a = ft_strdup("i hate \n");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "i hate \nchocolat") != 0)
+	{
+		free(c);
+		return (-1);
+	}
+	free(c);
+	return (0);
 }

@@ -12,9 +12,22 @@
 
 #include "libft.h"
 
-int	strlen_basic_test(void)
+int	strjoin_unicode_test(void)
 {
-	if (ft_strlen("Hey hey heys") != 11)
+	char	*a;
+	char	*b;
+	char	*c;
+
+	a = ft_strdup("🙆");
+	b = ft_strdup("🙅");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "🙆🙅") != 0)
+	{
+		free(c);
 		return (-1);
+	}
+	free(c);
 	return (0);
 }

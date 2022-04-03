@@ -12,10 +12,22 @@
 
 #include "libft.h"
 
-int	strcmp_basic_test(void)
+int	strjoin_unicode2_test(void)
 {
-	if ((ft_strcmp("alors", "alors") != 0)
-		|| (ft_strcmp("chocolat", " alors") < 1))
+	char	*a;
+	char	*b;
+	char	*c;
+
+	a = ft_strdup("😀😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏");
+	b = ft_strdup("😐😑😒😓😔😕😖😗😘😙😚😛😜😝😞😟");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "😀😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏😐😑😒😓😔😕😖😗😘😙😚😛😜😝😞😟") != 0)
+	{
+		free(c);
 		return (-1);
+	}
+	free(c);
 	return (0);
 }

@@ -12,20 +12,22 @@
 
 #include "libft.h"
 
-int	calloc_long_size(void)
+int	strjoin_basic2_test(void)
 {
-	int	*array;
+	char	*a;
+	char	*b;
+	char	*c;
 
-	array = ft_calloc(150, 4);
-	if (!array)
-		return (-1);
-	array[1] = 29094;
-	array[150] = 109234;
-	if (array[1] != 29094 || array[150] != 109234)
+	b = ft_strdup("d string B");
+	a = ft_strdup("string A an");
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	if (ft_strcmp(c, "string A and string B") != 0)
 	{
-		free(array);
+		free(c);
 		return (-1);
 	}
-	free(array);
+	free(c);
 	return (0);
 }

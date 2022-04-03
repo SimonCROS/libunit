@@ -4,6 +4,8 @@ LINUX			:= 0
 
 override SRC		:= framework
 override INC		:= framework/includes
+override TEST		:= test/
+override REAL_TEST	:= real_test/
 
 # Properties
 

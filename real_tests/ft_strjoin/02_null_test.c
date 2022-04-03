@@ -18,10 +18,10 @@ int	strjoin_null_test(void)
 	char	*b;
 	char	*c;
 
-	a = NULL;
-	b = NULL;
+	a = "";
+	b = "";
 	c = ft_strjoin(a, b);
-	if (ft_strcmp(c, NULL) != 0)
+	if (ft_strcmp(c, "") != 0)
 	{
 		free(c);
 		return (-1);
