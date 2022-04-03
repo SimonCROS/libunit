@@ -28,19 +28,13 @@ static void	init_test(t_test *test, char *category, t_list *tests)
 		return ;
 }
 
-static void	handler(int signum)
-{
-	(void)signum;
-	exit(254);
-}
-
 static void	launch_test(t_unit_test *current)
 {
 	if (fork() == 0)
 	{
 		mute(current);
-		signal(SIGALRM, handler);
-		alarm(TIMEOUT);
+		if (TIMEOUT > 0)
+			alarm(TIMEOUT);
 		exit(current->function());
 	}
 	wait(&current->status);

@@ -72,6 +72,8 @@ char	*get_res_string(int status)
 			return (RED"SIGPIPE");
 		else if (WTERMSIG(status) == SIGILL)
 			return (RED"SIGILL");
+		else if (WTERMSIG(status) == SIGALRM)
+			return (GREY"TIMEOUT");
 	}
 	else if (WEXITSTATUS(status) == 0)
 		return (GREEN"OK");
