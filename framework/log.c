@@ -22,11 +22,12 @@ void	out_log_tests(t_test *test, int passed)
 	ft_putstr("/");
 	ft_putnbr(total);
 	ft_putendl(" tests passed");
-	fprintf(test->fp,
-		"\n%d/%d tests passed\n"
-		"%d/%d tests terminated by a signal\n",
-		passed, total,
-		lst_count(test->tests, (t_predicate)test_terminated), total);
+	if (test->fp)
+		fprintf(test->fp,
+			"\n%d/%d tests passed\n"
+			"%d/%d tests terminated by a signal\n",
+			passed, total,
+			lst_count(test->tests, (t_predicate)test_terminated), total);
 }
 
 void	out_log_test(t_unit_test *current, t_test *test)
@@ -40,8 +41,9 @@ void	out_log_test(t_unit_test *current, t_test *test)
 	ft_putstr(" : [");
 	ft_putstr(res);
 	ft_putendl(RESET"]");
-	fprintf(test->fp, "%s : %-18s : [%s]\n",
-		test->category, current->name, res + 5);
+	if (test->fp)
+		fprintf(test->fp, "%s : %-18s : [%s]\n",
+			test->category, current->name, res + 5);
 }
 
 int	test_passed(t_unit_test *test)
@@ -71,7 +73,9 @@ char	*get_res_string(int status)
 		else if (WTERMSIG(status) == SIGILL)
 			return (RED"SIGILL");
 	}
-	else if (status == 0)
+	else if (WEXITSTATUS(status) == 0)
 		return (GREEN"OK");
+	else if (WEXITSTATUS(status) == 254)
+		return (GREY"TIMEOUT");
 	return (YELLOW"KO");
 }

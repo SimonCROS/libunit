@@ -17,12 +17,14 @@
 # include <time.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <signal.h>
 
 /*** Defines ******************************************************************/
 
 # define GREEN "\033[32m"
 # define YELLOW "\033[33m"
 # define RED "\033[31m"
+# define GREY "\033[35m"
 # define RESET "\033[0m"
 
 /*** Types ********************************************************************/

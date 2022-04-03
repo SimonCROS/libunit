@@ -14,17 +14,27 @@
 
 static void	init_test(t_test *test, char *category, t_list *tests)
 {
+	test->category = category;
+	test->tests = tests;
 	test->fp = fopen("test.log", "w+");
 	if (!test->fp)
 		return ;
-	test->category = category;
-	test->tests = tests;
+}
+
+static void	handler(int signum)
+{
+	(void)signum;
+	exit(254);
 }
 
 static void	launch_test(t_unit_test *current, t_test *test)
 {
 	if (fork() == 0)
+	{
+		signal(SIGALRM, handler);
+		alarm(4);
 		exit(current->function());
+	}
 	wait(&current->status);
 }
 
