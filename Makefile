@@ -1,0 +1,58 @@
+LINUX			:= 0
+
+# Folders
+
+override SRC		:= framework
+override INC		:= framework/includes
+
+# Properties
+
+NAME			= libunit.a
+
+# Commands
+
+override AR		:= ar rcs
+
+override CC		:= gcc
+override CFLAGS		:= -Wall -Wextra -Werror
+override INCLUDES	:= -I$(INC) -Ilibft/includes
+
+override LIBFT		:= libft/libft.a
+
+# Sources
+
+override SRCS		:=			\
+				test.c		\
+
+override OBJS		:= $(addprefix obj/, $(SRCS:.c=.o))
+
+override OBJDIRS	:= $(sort $(dir $(OBJS)))
+
+all:		libft $(NAME)
+
+libft:
+		make -C libft
+
+obj/%.o:	$(SRC)/%.c $(INC)/libunit.h libft/includes/libft.h
+			@mkdir -p $(dir $@);
+			$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
+
+$(OBJS):	| $(OBJDIRS)
+
+$(OBJDIRS):
+			mkdir -p $@
+
+$(NAME):	$(OBJS) $(LIBFT)
+			ar rcs $@ $(OBJS)
+
+clean:
+			$(MAKE) -C libft clean
+			rm -rf obj
+
+fclean:		clean
+			$(MAKE) -C libft fclean
+			rm -f $(NAME)
+
+re:			fclean all
+
+.PHONY:		all libft clean fclean re
