@@ -10,27 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "libunit.h"
+#include "signal-tests.h"
 
-/*** strjoin ******************************************************************/
+int	raise_launcher(void)
+{
+	t_list	tests;
 
-int	strjoin_launcher(void);
-
-int	strjoin_basic_test(void);
-int	strjoin_null_test(void);
-int	strjoin_long_test(void);
-int	strjoin_strange_test(void);
-int	strjoin_short_test(void);
-int	strjoin_null2_test(void);
-int	strjoin_null3_test(void);
-int	strjoin_null4_test(void);
-int	strjoin_null5_test(void);
-int	strjoin_null6_test(void);
-int	strjoin_basic2_test(void);
-int	strjoin_basic3_test(void);
-int	strjoin_basic4_test(void);
-int	strjoin_unicode_test(void);
-int	strjoin_unicode2_test(void);
-
-#endif
+	lst_init(&tests, free);
+	load_test(&tests, "Segmentation fault", raise_sigsegv_test);
+	load_test(&tests, "Bus error", raise_sigbus_test);
+	load_test(&tests, "Abort", raise_sigabrt_test);
+	load_test(&tests, "Floating point exception", raise_sigfpe_test);
+	load_test(&tests, "Broken pipe", raise_sigpipe_test);
+	load_test(&tests, "Illegal instruction", raise_sigill_test);
+	return (launch_tests(&tests, "SIGNAL"));
+}

@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <signal.h>
 
-int	crash_ok_test(void)
+int	raise_sigpipe_test(void)
 {
-	return (0);
+	raise(SIGPIPE);
+	return (-1);
 }

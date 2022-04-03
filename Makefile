@@ -34,6 +34,10 @@ all:		libft $(NAME)
 
 test:
 			@$(MAKE) -C tests test
+			@echo "====================="
+			@$(MAKE) -C signal-tests test
+			@echo "====================="
+			@$(MAKE) -C real-tests test
 
 libft:
 			@$(MAKE) -C libft

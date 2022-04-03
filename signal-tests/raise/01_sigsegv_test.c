@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "tests.h"
+#include <signal.h>
 
-int	main(void)
+int	raise_sigsegv_test(void)
 {
-	default_launcher();
+	raise(SIGSEGV);
+	return (-1);
 }

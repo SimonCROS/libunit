@@ -11,11 +11,11 @@ override CPPFLAGS	:= -Wall -Wextra -Werror
 
 override SRCS		:=						\
 				main.c					\
-				crash/00_launcher.c			\
-				crash/01_sigsegv_test.c			\
-				crash/02_ok_test.c			\
-				crash/03_ko_test.c			\
-				crash/04_sigabort_test.c
+				default/00_launcher.c			\
+				default/01_sigsegv_test.c		\
+				default/02_ok_test.c			\
+				default/03_ko_test.c			\
+				default/04_sigbus_test.c
 
 override LIBS		:=						\
 				../libunit.a

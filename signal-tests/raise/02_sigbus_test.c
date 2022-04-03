@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "tests.h"
+#include <signal.h>
 
-int	main(void)
+int	raise_sigbus_test(void)
 {
-	default_launcher();
+	raise(SIGBUS);
+	return (-1);
 }

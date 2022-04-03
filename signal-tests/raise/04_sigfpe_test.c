@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "tests.h"
+#include <signal.h>
 
-int	main(void)
+int	raise_sigfpe_test(void)
 {
-	default_launcher();
+	raise(SIGFPE);
+	return (-1);
 }

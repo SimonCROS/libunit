@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "tests.h"
+#include <signal.h>
 
-int	main(void)
+int	default_sigbus_test(void)
 {
-	default_launcher();
+	ft_strlcat("HEY", "HEY", 50);
+	return (-1);
 }

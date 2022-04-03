@@ -10,17 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "tests.h"
+#include "libft.h"
+#include <signal.h>
 
-int	crash_launcher(void)
+int	raise_sigabrt_test(void)
 {
-	t_list	tests;
-
-	lst_init(&tests, free);
-	load_test(&tests, "Segmentation fault", crash_sigsegv_test);
-	load_test(&tests, "Sig Abort", crash_sigabrt_test);
-	load_test(&tests, "ok test", crash_ok_test);
-	load_test(&tests, "ko test", crash_ko_test);
-	return (launch_tests(&tests, "CRASH"));
+	raise(SIGABRT);
+	return (-1);
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	crash_sigsegv_test(void)
+int	default_sigsegv_test(void)
 {
 	int	*abc;
 

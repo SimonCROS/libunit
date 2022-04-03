@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "signal-tests.h"
 
-int	crash_ko_test(void)
+int	main(void)
 {
-	return (-1);
+	raise_launcher();
 }

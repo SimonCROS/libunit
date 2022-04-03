@@ -10,10 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libunit.h"
 #include "tests.h"
 
-int	main(void)
+int	default_launcher(void)
 {
-	default_launcher();
+	t_list	tests;
+
+	lst_init(&tests, free);
+	load_test(&tests, "Segmentation fault", default_sigsegv_test);
+	load_test(&tests, "Bus error", default_sigbus_test);
+	load_test(&tests, "OK", default_ok_test);
+	load_test(&tests, "KO", default_ko_test);
+	return (launch_tests(&tests, "DEFAULT"));
 }

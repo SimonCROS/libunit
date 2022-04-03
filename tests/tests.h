@@ -13,13 +13,13 @@
 #ifndef TESTS_H
 # define TESTS_H
 
-/*** crash *****************************************************************1**/
+/*** default *****************************************************************1**/
 
-int	crash_launcher(void);
+int	default_launcher(void);
 
-int	crash_sigsegv_test(void);
-int	crash_ok_test(void);
-int	crash_ko_test(void);
-int	crash_sigabrt_test(void);
+int	default_sigsegv_test(void);
+int	default_ok_test(void);
+int	default_ko_test(void);
+int	default_sigbus_test(void);
 
 #endif

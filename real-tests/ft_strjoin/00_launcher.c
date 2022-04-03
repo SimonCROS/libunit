@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "tests.h"
+#include "real-tests.h"
 
 int	strjoin_launcher(void)
 {
