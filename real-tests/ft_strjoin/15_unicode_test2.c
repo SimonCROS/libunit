@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-int	strjoin_basic_test(void)
+int	strjoin_unicode2_test(void)
 {
 	char	*a;
 	char	*b;
 	char	*c;
 
-	b = ft_strdup("this is shorter");
-	a = ft_strdup("this is a pretty short string, ");
+	a = ft_strdup("😀😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏");
+	b = ft_strdup("😐😑😒😓😔😕😖😗😘😙😚😛😜😝😞😟");
 	c = ft_strjoin(a, b);
 	free(a);
 	free(b);
-	if (ft_strcmp(c, "this is a pretty short string, this is shorter") != 0)
+	if (ft_strcmp(c, "😀😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏😐😑😒😓😔😕😖😗😘😙😚😛😜😝😞😟") != 0)
 	{
 		free(c);
 		return (-1);

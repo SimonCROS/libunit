@@ -12,18 +12,27 @@
 
 #include "libft.h"
 
-int	strjoin_basic_test(void)
+int	strjoin_long_test(void)
 {
 	char	*a;
 	char	*b;
 	char	*c;
 
-	b = ft_strdup("this is shorter");
-	a = ft_strdup("this is a pretty short string, ");
+	b = ft_strdup("very, very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very "
+			"long string \nthis is shorter");
+	a = ft_strdup("Very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very,");
 	c = ft_strjoin(a, b);
 	free(a);
 	free(b);
-	if (ft_strcmp(c, "this is a pretty short string, this is shorter") != 0)
+	if (ft_strcmp(c, "Very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very,"
+			"very, very, very, very, very, very, very, very, very, very,"
+			" very, very, very, very, very, very, very, very, very, very "
+			"long string \nthis is shorter") != 0)
 	{
 		free(c);
 		return (-1);

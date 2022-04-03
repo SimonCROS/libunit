@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-int	strjoin_basic_test(void)
+int	strjoin_strange_test(void)
 {
 	char	*a;
 	char	*b;
 	char	*c;
 
-	b = ft_strdup("this is shorter");
-	a = ft_strdup("this is a pretty short string, ");
+	a = ft_strdup("\n\u2651\t\\p\e\a\n");
+	b = ft_strdup("\u2651\t\e\\0\e");
 	c = ft_strjoin(a, b);
 	free(a);
 	free(b);
-	if (ft_strcmp(c, "this is a pretty short string, this is shorter") != 0)
+	if (ft_strcmp(c, "\n\u2651\t\\p\e\a\n\u2651\t\e\\0\e") != 0)
 	{
 		free(c);
 		return (-1);
