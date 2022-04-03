@@ -32,7 +32,7 @@ override LIBS		:=						\
 				../libunit.a
 
 override HEADERS	:=						\
-				real-tests.h				\
+				real_tests.h				\
 				../framework/includes/libunit.h		\
 				../libft/includes/libft.h
 

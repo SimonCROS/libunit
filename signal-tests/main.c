@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "signal-tests.h"
+#include "signal_tests.h"
 
 int	main(void)
 {

@@ -23,7 +23,7 @@ override LIBS		:=						\
 				../libunit.a
 
 override HEADERS	:=						\
-				signal-tests.h				\
+				signal_tests.h				\
 				../framework/includes/libunit.h		\
 				../libft/includes/libft.h
 

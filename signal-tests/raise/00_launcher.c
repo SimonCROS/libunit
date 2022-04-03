@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "signal-tests.h"
+#include "signal_tests.h"
 
 int	raise_launcher(void)
 {
