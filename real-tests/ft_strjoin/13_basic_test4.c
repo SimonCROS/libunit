@@ -23,7 +23,8 @@ int	strjoin_basic4_test(void)
 	c = ft_strjoin(a, b);
 	free(a);
 	free(b);
-	if (ft_strcmp(c, "Doing a little trolling << Doing a mild amount of tomfoolery") != 0)
+	if (ft_strcmp(c, "Doing a little trolling << Doing a mild amount of tomfoo"
+			"lery") != 0)
 	{
 		free(c);
 		return (-1);
