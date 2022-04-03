@@ -32,7 +32,7 @@ static void	launch_test(t_unit_test *current, t_test *test)
 	if (fork() == 0)
 	{
 		signal(SIGALRM, handler);
-		alarm(4);
+		alarm(TIMEOUT_TIME);
 		exit(current->function());
 	}
 	wait(&current->status);

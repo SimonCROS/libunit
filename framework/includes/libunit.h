@@ -13,6 +13,10 @@
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
 
+# ifndef TIMEOUT_TIME
+#  define TIMEOUT_TIME 4
+# endif
+
 # include "libft.h"
 # include <time.h>
 # include <stdio.h>
