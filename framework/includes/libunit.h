@@ -57,5 +57,6 @@ void	out_log_test(t_unit_test *current, t_test *test);
 int		test_passed(t_unit_test *test);
 int		test_terminated(t_unit_test *test);
 char	*get_res_string(int status);
+void	mute(t_unit_test *test);
 
 #endif

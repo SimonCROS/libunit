@@ -25,7 +25,8 @@ override LIBFT		:= libft/libft.a
 
 override SRCS		:=			\
 				test.c		\
-				log.c
+				log.c		\
+				mute.c
 
 override OBJS		:= $(addprefix obj/, $(SRCS:.c=.o))
 

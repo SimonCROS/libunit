@@ -1,7 +1,0 @@
-DEFAULT : Segmentation fault : [SIGSEGV]
-DEFAULT : Bus error          : [SIGBUS]
-DEFAULT : OK                 : [OK]
-DEFAULT : KO                 : [KO]
-
-1/4 tests passed
-2/4 tests terminated by a signal

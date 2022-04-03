@@ -57,6 +57,8 @@ Makefile.gen
 *.idb
 *.pdb
 *.log
+stdout
+stderr
 
 # Kernel Module Compile Results
 *.mod*

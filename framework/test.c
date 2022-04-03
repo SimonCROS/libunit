@@ -14,9 +14,16 @@
 
 static void	init_test(t_test *test, char *category, t_list *tests)
 {
+	char	*file;
+
+	test->fp = NULL;
 	test->category = category;
 	test->tests = tests;
-	test->fp = fopen("test.log", "w+");
+	file = ft_strjoin(category, ".log");
+	if (!file)
+		return ;
+	test->fp = fopen(file, "w+");
+	free(file);
 	if (!test->fp)
 		return ;
 }
@@ -31,7 +38,7 @@ static void	launch_test(t_unit_test *current)
 {
 	if (fork() == 0)
 	{
-		mute();
+		mute(current);
 		signal(SIGALRM, handler);
 		alarm(TIMEOUT);
 		exit(current->function());
