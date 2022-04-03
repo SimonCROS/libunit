@@ -30,10 +30,13 @@ override OBJDIRS	:= $(sort $(dir $(OBJS)))
 
 all:		libft $(NAME)
 
-libft:
-		make -C libft
+test:
+			@$(MAKE) -C tests
 
-obj/%.o:	$(SRC)/%.c $(INC)/libunit.h libft/includes/libft.h
+libft:
+			@$(MAKE) -C libft
+
+obj/%.o:	$(SRC)/%.c $(INC)/libunit.h libft/includes/libft.h Makefile
 			@mkdir -p $(dir $@);
 			$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
@@ -43,14 +46,15 @@ $(OBJDIRS):
 			mkdir -p $@
 
 $(NAME):	$(OBJS) $(LIBFT)
+			cp libft/libft.a $@
 			ar rcs $@ $(OBJS)
 
 clean:
-			$(MAKE) -C libft clean
+			@$(MAKE) -C libft clean
 			rm -rf obj
 
 fclean:		clean
-			$(MAKE) -C libft fclean
+			@$(MAKE) -C libft fclean
 			rm -f $(NAME)
 
 re:			fclean all

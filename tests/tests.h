@@ -10,10 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef TESTS_H
+# define TESTS_H
 
-/*int	int_test(void)
-{
+/*** crash *****************************************************************1**/
 
+int	crash_launcher(void);
 
-}*/
+int	crash_sigsegv_test(void);
+int	crash_ok_test(void);
+int	crash_ko_test(void);
+int	crash_sigabrt_test(void);
+
+#endif

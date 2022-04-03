@@ -13,15 +13,6 @@
 #ifndef TESTS_H
 # define TESTS_H
 
-/*** crash *****************************************************************1**/
-
-int	crash_launcher(void);
-
-int	crash_sigsegv_test(void);
-int	crash_ok_test(void);
-int	crash_ko_test(void);
-int	crash_sigabrt_test(void);
-
 /*** strlen ****************************************************************2**/
 
 int	strlen_launcher(void);

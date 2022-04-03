@@ -11,21 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "tests.h"
 
-int	calloc_short_size(void)
+int	main(void)
 {
-	char	*s;
-
-	s = ft_calloc(2, 1);
-	if (!s)
-		return (-1);
-	s[1] = 'a';
-	s[2] = 'b';
-	if (s[1] != 'a' || s[2] != 'b')
-	{
-		free(s);
-		return (-1);
-	}
-	free(s);
-	return (0);
+	strjoin_launcher();
 }

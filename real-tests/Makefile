@@ -11,11 +11,9 @@ override CPPFLAGS	:= -Wall -Wextra -Werror
 
 override SRCS		:=						\
 				main.c					\
-				crash/00_launcher.c			\
-				crash/01_sigsegv_test.c			\
-				crash/02_ok_test.c			\
-				crash/03_ko_test.c			\
-				crash/04_sigabort_test.c
+				ft_strjoin/00_launcher.c		\
+				ft_strjoin/01_basic_test.c		\
+				ft_strjoin/02_null_test.c
 
 override LIBS		:=						\
 				../libunit.a
@@ -40,6 +38,7 @@ all:		libunit $(NAME)
 
 test:		all
 			./$(NAME)
+
 
 $(OBJS):	| $(OBJDIRS)
 
